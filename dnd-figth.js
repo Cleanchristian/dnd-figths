@@ -20,20 +20,7 @@ let randomGen = (arr) => {
     return arr[Math.floor(Math.random()*arr.length)]
 }
 
-/*
-// Generates an Array containing Character information
-export const characterGenerator = () => {
-    let charac = []
-    charac[0] = randomGen(races)
-    charac[1] = randomGen(classes)
-    charac[2] = (Math.floor((Math.random()*3)) + 3)*2
-    charac[3] = `Your were born in ${randomGen(area)}, where you lived in ${randomGen(terrain)}. Luckyly you grew up ${randomGen(parents)}, as it shaped the person you are today. You wouldn't wanna change your ${randomGen(childhood)} childhood for anything.`
-    console.log('hi')
-    return charac
-    
-}
-*/
-
+// Charactor object factory
 const characterGen = (name) => {
     return {
         name: name,
@@ -41,6 +28,7 @@ const characterGen = (name) => {
         class: randomGen(classes),
         hitdie: (Math.floor((Math.random()*3)) + 3)*2,
         backstory: `Your were born in ${randomGen(area)}, where you lived in ${randomGen(terrain)}. Luckyly you grew up ${randomGen(parents)}, as it shaped the person you are today. You wouldn't wanna change your ${randomGen(childhood)} childhood for anything.`,
+        // logs Hello
         sayHello(){
             console.log(this.name + ' says hello!')
         },
@@ -48,8 +36,8 @@ const characterGen = (name) => {
             return Math.floor(Math.random()*this.hitdie)
         },
         figth(character){
-            let myScore = Math.floor(Math.random()*this.hitdie)
-            let oppScore = Math.floor(Math.random()*character.hitdie)
+            let myScore = this.rollHitdie()
+            let oppScore = character.rollHitdie()
             if(myScore > oppScore){
                 console.log(`${this.name} wins!!!`)
             } else {
