@@ -48,8 +48,12 @@ const characterGen = (name) => {
     }
 }
 
+
 const harald = characterGen('Harald')
 const john = characterGen('john')
+
+console.log(harald)
+console.log(john)
 
 harald.figth(john)
 
