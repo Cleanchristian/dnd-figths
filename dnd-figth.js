@@ -48,13 +48,15 @@ const characterGen = (name) => {
     }
 }
 
-
+//generates two random characters
 const harald = characterGen('Harald')
 const john = characterGen('john')
 
+// logs the characters to the console
 console.log(harald)
 console.log(john)
 
+// the characters fight eachother and the winner is declared
 harald.figth(john)
 
 
